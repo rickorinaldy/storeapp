@@ -6,10 +6,17 @@ def simpan():
     print('Menyimpan data..')
     for i in range(len(data)):
         try:
-            BarangModel(
-                nama            = data['Barang'][i],
-                harga           = data['Harga'][i],
-                harga_renceng   = data['Harga Rencengan'][i],
+            try:
+                BarangModel.objects.filter(no_id=i).update(
+                    nama            = data['Barang'][i],
+                    harga           = data['Harga'][i],
+                    harga_renceng   = data['Harga Rencengan'][i])
+            except:
+                BarangModel(
+                    no_id           = i,
+                    nama            = data['Barang'][i],
+                    harga           = data['Harga'][i],
+                    harga_renceng   = data['Harga Rencengan'][i],
                 ).save()
         except Exception as e:print(e)
 
