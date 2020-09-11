@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{% block judul_halaman %}
+
+		{% endblock judul_halaman %}
+	</title>
+
+	{% include "snippets/styles.html" %}
+
+	{% block ext %}
+
+	{% endblock %}
+</head>
+<body>
+	{% block isi %}
+
+	{% endblock isi %}
+	{% include "snippets/scripts.html" %}
+</body>
+</html>
